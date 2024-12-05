@@ -1,0 +1,844 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Navbar Styling */
+.navbar {
+    margin: 0 1in;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    position: relative;
+    z-index: 100;
+}
+
+/* Logo */
+.logo img {
+    width: 40px;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #015ca8;
+}
+
+.nav-links li a.active {
+    color: #015ca8;
+    font-weight: bold;
+}
+
+/* Mobile View: Change the Logo */
+@media (max-width: 768px) {
+    .logo img {
+        width: 150px;
+        content: url('../img/logo.png');
+        /* Path to the mobile-specific logo */
+        max-width: 120px;
+        /* Adjust the logo size for mobile */
+    }
+
+    .navbar {
+        margin: 0;
+    }
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30px;
+    /* Adjust the width */
+    height: 25px;
+    /* Adjust the height */
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    /* Thicker bars for better appearance */
+    background-color: black;
+    border-radius: 2px;
+    /* Rounded edges for elegance */
+    transition: all 0.3s ease;
+    /* Smooth animation */
+}
+
+/* Fix alignment issue by ensuring proper spacing */
+.hamburger span:not(:last-child) {
+    margin-bottom: 4px;
+    /* Space between the bars */
+}
+
+/* Mobile-Specific Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: white;
+        width: 100%;
+        border-top: 1px solid #ddd;
+        z-index: 10;
+        padding: 20px 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links li {
+        padding: 10px 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hamburger Animation */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        /* Hide the middle bar */
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* Masthead Section */
+.masthead {
+    position: relative;
+    background-image: url('../img/banner.jpg');
+    /* Add your background image */
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    /* Adjust the height for a full-screen feel */
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.masthead::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* Dark overlay */
+    z-index: 1;
+}
+
+.masthead .masthead-content {
+    z-index: 2;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.masthead h1 {
+    font-size: 48px;
+    /* Large text size for the tagline */
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    /* Subtle text shadow for emphasis */
+}
+
+.masthead p {
+    font-size: 22px;
+    margin-top: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    /* Shadow for readability */
+}
+
+.masthead .btn {
+    background-color: #d61723;
+    /* Red background for CTA */
+    color: white;
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    /* Rounded corners */
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.masthead .btn:hover {
+    background-color: #015ca8;
+    border: 2px solid white;
+}
+
+/* Optional: Text on mobile devices */
+@media (max-width: 768px) {
+    .masthead h1 {
+        font-size: 32px;
+        /* Smaller text size for mobile */
+    }
+
+    .masthead p {
+        font-size: 18px;
+        /* Smaller text size for mobile */
+    }
+}
+
+/* CTA Block Section */
+.cta-block-1 {
+    background: #015ca8;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    margin: 40px 0;
+    /* Margin to separate from other content */
+}
+
+.cta-block-2 {
+    background: #d61723;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    margin: 40px 0;
+    /* Margin to separate from other content */
+}
+
+.cta-content h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    /* Text shadow for emphasis */
+}
+
+.cta-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-btn-1,
+.cta-btn-2 {
+    background: white;
+    font-weight: bold;
+    color: black;
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50px;
+    /* Rounded corners */
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+}
+
+.cta-btn-1:hover {
+    transform: translateY(-5px);
+    /* Button lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    /* Enhance the shadow on hover */
+    background: #d61723;
+    /* Reverse gradient on hover */
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-btn-2:hover {
+    transform: translateY(-5px);
+    /* Button lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    /* Enhance the shadow on hover */
+    background: #015ca8;
+    /* Reverse gradient on hover */
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-btn-1,
+cta-btn-2:focus {
+    outline: none;
+}
+
+/* Optional: Mobile Responsiveness */
+@media (max-width: 768px) {
+    .cta-content h2 {
+        font-size: 32px;
+        /* Smaller text for mobile devices */
+    }
+
+    .cta-content p {
+        font-size: 16px;
+    }
+
+    .cta-btn-1,
+    .cta-btn-2 {
+        font-size: 18px;
+        /* Smaller button text on mobile */
+        padding: 12px 25px;
+    }
+}
+
+/* General Section Styling (1, 2, and 3) */
+section {
+    padding: 60px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Allows wrapping for smaller screens */
+    gap: 20px;
+}
+
+/* Alternate Background Color for Sections */
+section:nth-child(even):not(.cta-block-1):not(.cta-block-2) {
+    background-color: #f4f4f4;
+    /* Light gray for contrast */
+}
+
+/* Content Container */
+.section-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* Wrap content on smaller screens */
+    width: 100%;
+    max-width: 1200px;
+    /* Limit maximum width for large screens */
+    gap: 20px;
+}
+
+/* Image Styling */
+.section-content img {
+    max-width: 30%;
+    /* Ensure the image never overflows */
+    height: auto;
+    /* Maintain aspect ratio */
+    flex: 1 1 40%;
+    /* Allow image to take up to 40% of the container */
+    object-fit: cover;
+    /* Adjust the image to fill its container gracefully */
+    border-radius: 8px;
+    /* Optional: Rounded corners for the image */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); Light shadow for depth */
+}
+
+/* Text Styling */
+.section-content .text {
+    flex: 1 1 50%;
+    /* Allow text to take up to 50% of the container */
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+}
+
+.section-content .text h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.section-content .text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-content {
+        flex-direction: column;
+        /* Stack text and image vertically on smaller screens */
+        text-align: center;
+        /* Center align for smaller screens */
+    }
+
+    .section-content img {
+        width: 100%;
+        /* Image spans full width */
+    }
+
+    .section-content .text {
+        flex: 1 1 100%;
+        /* Text spans full width */
+    }
+}
+
+/* Section 4: Platform of Firsts */
+#section-4 {
+    padding: 50px 15px;
+    text-align: center;
+    margin: 0 1in;
+}
+
+#section-4 h2 {
+    font-size: 36px;
+    color: #333;
+    /* Red color */
+    margin-bottom: 40px;
+}
+
+.platform-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 boxes in a row */
+    gap: 30px;
+    /* Space between the cards */
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.card i {
+    color: #333;
+    /* Red color for the icon */
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.card p {
+    font-size: 16px;
+    color: #555;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    /* Slight lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Enhanced shadow on hover */
+}
+
+@media (max-width: 1024px) {
+
+    /* For tablet view and below, reduce to 2 columns */
+    .platform-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* For mobile view, display as 1 column */
+    .platform-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Feature Section */
+.features {
+    padding: 50px 20px;
+    background-color: #fff;
+    margin: 0 1in;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h1 {
+    font-size: 32px;
+    color: #000;
+}
+
+.section-header p {
+    font-size: 18px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Feature List Gallery */
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+@media (max-width: 1024px) {
+    .feature-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .feature-list {
+        grid-template-columns: 1fr;
+        /* Stack the boxes on mobile view */
+    }
+}
+
+/* Feature Box (Card) Styling */
+.feature-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box i {
+    font-size: 50px;
+    color: #000;
+    /* Changed to black */
+    margin-bottom: 20px;
+}
+
+.feature-box h2 {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.feature-box p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Hover Effect for Feature Boxes */
+.feature-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-color: #000;
+}
+
+/* Artistic Design - Grid Layout with Hover Transition */
+.feature-box i {
+    transition: color 0.3s ease;
+}
+
+.feature-box:hover i {
+    color: #d61723;
+    /* Add a color effect on icon when hovering */
+}
+
+/* Add some padding inside the grid container */
+.feature-list {
+    padding: 0 20px;
+}
+
+/* About Us Page Styles */
+.about-us,
+.key-people {
+    padding: 50px 20px;
+    margin: 0 1in;
+}
+
+.section-header h1,
+.section-header h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #000;
+}
+
+.section-header p {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Section 1 - About SportsTXT */
+.about-us {
+    background-color: #fff;
+}
+
+/* Section 1: About Us - Video Embed */
+.video-container {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding-bottom: 42.5%;
+    /* This ratio is for 16:9 aspect ratio (height:width) */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Section 2 - Key People */
+.key-people {
+    background-color: #fff;
+    margin-top: 50px;
+}
+
+.key-people-list {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.key-person-card {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.key-person-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.key-person-card h3 {
+    margin-top: 10px;
+    font-size: 24px;
+    color: #000;
+}
+
+.key-person-card p {
+    font-size: 16px;
+    color: #777;
+}
+
+.key-person-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Us Page */
+.contact-us {
+    padding: 50px 15px;
+    text-align: center;
+}
+
+.section-header h1 {
+    font-size: 36px;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.address {
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.address h2 {
+    font-size: 28px;
+    color: #d61723;
+    /* Red color */
+    margin-bottom: 15px;
+}
+
+.contact-form {
+    width: 500px;
+    max-width: 800px;
+    /* Increase the width here to make it wider */
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    font-size: 28px;
+    color: #d61723;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.btn-submit {
+    background-color: #d61723;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #015ca8;
+    /* Blue color */
+}
+
+@media (max-width: 768px) {
+    .contact-us {
+        padding: 30px 15px;
+    }
+
+    .contact-form {
+        max-width: 100%;
+        /* Full width on mobile */
+        padding: 15px;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: white;
+    /* White background */
+    color: black;
+    /* Black text */
+    padding: 30px 20px;
+    /* Increased padding for better spacing */
+    text-align: center;
+    border-top: 2px solid #e0e0e0;
+    /* Light border at the top */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for elegance */
+}
+
+footer .footer-logo-img {
+    height: 40px;
+    width: auto;
+    margin-bottom: 10px;
+    /* Space between logo and footer links */
+}
+
+footer .footer-links a {
+    color: black;
+    /* Black text for footer links */
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    /* Smooth transition */
+}
+
+footer .footer-links a:hover {
+    color: #d61723;
+    /* Change color on hover */
+    text-decoration: underline;
+    /* Add underline on hover */
+    transform: translateY(-2px);
+    /* Slight lift effect on hover */
+}
+
+/* Optional: More Design Enhancements */
+footer .footer-links {
+    margin-top: 15px;
+    /* Space between the logo and links */
+}
+
+footer .footer-links a:first-child {
+    margin-left: 0;
+    /* Remove left margin from the first link */
+}
+
+footer .footer-links a:last-child {
+    margin-right: 0;
+    /* Remove right margin from the last link */
+}
+
+/* Hover Effects on Navigation Links */
+nav .nav-links a:hover {
+    color: #d61723;
+    /* Red color for hover effect */
+    text-decoration: underline;
+    /* Add underline effect */
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    nav .nav-links {
+        display: none;
+    }
+
+    nav .hamburger {
+        display: block;
+    }
+}
